@@ -1,11 +1,11 @@
 import React from 'react';
 
 function Label(props){
-  return (
-    <div className="label">
-      {props.children}
-    </div>
-  )
+	return (
+		<p className="label">
+			{props.children}
+		</p>
+	)
 }
 
 export default Label;

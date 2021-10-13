@@ -1,0 +1,129 @@
+/*General*/
+
+:root {
+	--main-color: #4b7bec;
+	--primary-text-color: #333333;
+	--secondary-text-color: #424242;
+	--red: #fc5c65;
+	--red-dark: #eb3b5a;
+	--orange: #fd9644;
+	--orange-dark: #fa8231;
+	--yellow: #fed330;
+	--yellow-dark: #f7b731;
+	--green: #26de81;
+	--green-dark: #20bf6b;
+	--turquoise: #2bcbba;
+	--turquoise-dark: #0fb9b1;
+	--light-blue: #45aaf2;
+	--light-blue-dark: #2d98da;
+	--blue: #4b7bec;
+	--blue-dark: #3867d6;
+	--purple: #a55eea;
+	--purple-dark: #8854d0;
+	--gray: #778ca3;
+	--gray-dark: #4b6584;
+}
+
+body, html {
+	margin: 0;
+	font-family: Source Sans Pro;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#root {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+	margin: -3px 0 0 0;
+	color: var(--blue);
+}
+
+p {
+	margin: -3px 0 0 0;
+}
+
+/*Section*/
+
+.section {
+	display: grid;
+	grid-template-rows: fit-content(0) auto;
+	grid-template-areas:
+	"topbar"
+	"content";
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.section__content {
+		grid-area: content;
+		overflow-y: auto;
+}
+
+.topbar {
+	display: grid;
+	grid-template-columns: fit-content(0) 1fr 400px 1fr fit-content(0);
+	grid-template-areas: "logo space search space2 buttons";
+	height: 58px;
+	background-color: var(--blue);
+	align-items: center;
+}
+
+.topbar__logo_wrapper {
+	grid-area: logo;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	gap: 10px;
+	font-size: 24px;
+	width: fit-content;
+	color: white;
+}
+
+.topbar .input {
+	grid-area: search;
+}
+
+.topbar__buttons {
+	grid-area: buttons;
+	display: flex;
+}
+
+/*Loading*/
+
+.loading {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	justify-content: center;
+}
+
+.loading .animation-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading__logo-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading__logo {
+	height: 17px;
+	width: 100px;
+	margin-right: 10px;
+}
+
+.loading__logo__text {
+	color: #9d9d9d;
+	font-size: 24px;
+}

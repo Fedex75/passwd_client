@@ -1,29 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
+import Register from './sections/register/Register';
 import Login from './sections/login/Login';
-import Auth from './Auth';
 import Vault from './sections/vault/Vault';
+import './styles/App.css';
+import './styles/UI.css';
+import ReactModal from 'react-modal';
 
-let maintenance = false;
+ReactModal.setAppElement('#root');
 
 function App() {
-	useEffect(() => {
-		window.addEventListener('beforeunload', event => {
-			Auth.logOut();
-		});
-	});
-
-	if (maintenance){
-		return (
-			<div style={{height: '100%', display: 'flex', flexFlow: 'column', justifyContent: 'center', alignItems: 'center'}}>
-				<div style={{fontSize: '30px'}}>Estamos realizando mantenimiento</div>
-			</div>
-		);
-	} 
 	return (
 		<BrowserRouter>
 			<Route exact path="/" render = { () => <Redirect to = "/login" />} />
+			<Route path="/register" component = {Register} />
 			<Route path="/login" component = {Login} />
 			<ProtectedRoute path="/vault" component = {Vault} />
 		</BrowserRouter >

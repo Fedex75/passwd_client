@@ -1,0 +1,49 @@
+#vault {
+  display: grid;
+  grid-template-rows: fit-content(0) fit-content(0) auto;
+  padding: 10px;
+}
+
+.vault__title {
+  font-size: 25px;
+  color: var(--primary-text-color);
+  margin-bottom: 15px;
+}
+
+.vault__buttons_wrapper {
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.vault__cards_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 420px);
+  gap: 20px;
+}
+
+.vault__card {
+  background-color: var(--blue);
+  width: 380px;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 13px;
+  border: solid 2px var(--blue-dark);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 25%);
+  color: white;
+}
+
+.vault__card__top_bar {
+  display: grid;
+  grid-template-columns: auto fit-content(0) fit-content(0);
+  gap: 15px;
+}
+
+.vault__card__content {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+}
+
+.vault__card__top_bar__title {
+  font-size: 20px;
+}
