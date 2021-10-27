@@ -1,11 +1,9 @@
 import React from 'react';
 
-function FormContent(props){
+export default function FormContent({children}){
 	return (
 		<div className="form__content">
-			{props.children}
+			{children}
 		</div>
 	)
 }
-
-export default FormContent;

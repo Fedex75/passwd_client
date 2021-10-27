@@ -1,13 +1,11 @@
 import React from 'react';
 
-function Form(props){
+export default function Form({title, subtitle, children}){
 	return (
 		<div className="form">
-			{(() => {if (props.title) { return <div className="form__title">{props.title}</div>}})()}
-			{(() => {if (props.subtitle) { return <div className="form__subtitle">{props.subtitle}</div>}})()}
-			{props.children}
+			{title ? <div className="form__title">{title}</div> : null}
+			{subtitle ? <div className="form__subtitle">{subtitle}</div> : null}
+			{children}
 		</div>
 	)
 }
-
-export default Form;

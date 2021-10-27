@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
-import Auth from '../../Auth';
-import { withRouter } from 'react-router';
-import Label from '../../components/Label';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import './Login.css';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import {Label, Button, Input} from '../../components';
+import Auth from '../../Auth';
+import '../../styles/Login.css';
 
-function Login(props) {
-	const [email, setEmail] = React.useState('');
-	const [password, setPassword] = React.useState('');
-	const [error, setError] = React.useState(null);
-	const [loading, setLoading] = React.useState(false);
+function Login({history, location}) {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	const afterLogin = async redir => {
-		props.history.replace(props.location.state ? props.location.state.redirect : redir);
+		history.replace(location.state ? location.state.redirect : redir);
 	};
 
 	const login = () => {
@@ -44,8 +42,8 @@ function Login(props) {
 				<Input type="password" value={password} onChange={setPassword} error={error && error.type === 'password'} onEnter={login} />
 				<p className="input_error">{(error && error.type === 'password') ? error.msg : ' '}</p>
 				<Button title="Acceder" disabled={email === '' || password === ''} loading={loading} onClick={login} />
-				<div className="login__register_wrapper">
-					<p className="login__register">¿No tenés una cuenta?</p>
+				<div className="login__suggestion_wrapper">
+					<p className="login__suggestion">¿No tenés una cuenta?</p>
 					<Link to="/register">Registrate</Link>
 				</div>
 			</div>

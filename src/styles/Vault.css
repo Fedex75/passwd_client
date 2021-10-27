@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: fit-content(0) fit-content(0) auto;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .vault__title {
@@ -18,18 +19,30 @@
 .vault__cards_wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, 420px);
+  grid-template-rows: repeat(auto-fit, 200px);
   gap: 20px;
 }
 
 .vault__card {
   background-color: var(--blue);
-  width: 380px;
+  width: min(380px, 100%);
   height: fit-content;
   padding: 10px;
   border-radius: 13px;
   border: solid 2px var(--blue-dark);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 25%);
   color: white;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 424px) {
+  .vault__cards_wrapper {
+    gap: 20px 0;
+  }
+
+  .vault__card {
+    width: 100%;
+  }
 }
 
 .vault__card__top_bar {
@@ -46,4 +59,12 @@
 
 .vault__card__top_bar__title {
   font-size: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .vault__cards_wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 20px 0;
+  }
 }

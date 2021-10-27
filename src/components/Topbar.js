@@ -5,11 +5,11 @@ import Auth from '../Auth';
 import Button from './Button';
 import Input from './Input';
 
-function Topbar(props){
-	const [search, setSearch] = useState(qs.parse(props.location.search.substring(1)).search);
+function Topbar({history, location}){
+	const [search, setSearch] = useState(qs.parse(location.search.substring(1)).search);
 
 	const handleSearch = () => {
-		props.history.push(`/vault${search !== '' ? `?search=${search}` : ''}`);
+		history.push(`/vault${search !== '' ? `?search=${search}` : ''}`);
 	};
 
 	return (
@@ -18,7 +18,9 @@ function Topbar(props){
 				<i className="fas fa-lock"></i>
 				<p className="topbar__logo_wrapper__title">passwd</p>
 			</div>
-			<Input spellCheck={false} icon="fas fa-search" value={search} onChange={setSearch} onEnter={handleSearch} />
+			<div className="topbar__search-wrapper">
+				<Input spellCheck={false} icon="fas fa-search" value={search} onChange={setSearch} onEnter={handleSearch} />
+			</div>
 			<div className="topbar__buttons">
 				<Button ghost icon="fas fa-user" title={Auth.user.name} />
 			</div>

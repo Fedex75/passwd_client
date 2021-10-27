@@ -1,25 +1,23 @@
 import React, { cloneElement } from "react";
 import ReactModal from "react-modal";
 
-function ModalForm(props){
+export default function ModalForm({title, isOpen, onRequestClose, color = 'blue', buttons, children}){
   return (
     <ReactModal
-      isOpen={props.isOpen}
-      onRequestClose={props.onRequestClose}
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
       className="modal__content"
       overlayClassName="modal__overlay"
     >
-      <div className="modal-form" style={{backgroundColor: `var(--${props.color || 'blue'}-dark)` || 'var(--blue)', borderColor: `var(--${props.color || 'blue'}-dark)`}}>
-        <div className="modal-form__title">{props.title}</div>
+      <div className="modal-form" style={{backgroundColor: `var(--${color}-dark)`, borderColor: `var(--${color}-dark)`}}>
+        <div className="modal-form__title">{title}</div>
         <div className="modal-form__content">
-          {props.children}
+          {children}
         </div>
         <div className="modal-form__buttons">
-          { props.buttons.map((btn, i) => cloneElement(btn, {key: i})) }
+          { buttons.map((btn, i) => cloneElement(btn, {key: i})) }
         </div>
       </div>
     </ReactModal>
   );
 }
-
-export default ModalForm;

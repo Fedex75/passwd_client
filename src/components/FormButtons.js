@@ -1,11 +1,9 @@
 import React from 'react';
 
-function FormButtons(props){
+export default function FormButtons({children}){
 	return (
 		<div className="form__buttons">
-			{props.children}
+			{children}
 		</div>
 	)
 }
-
-export default FormButtons;

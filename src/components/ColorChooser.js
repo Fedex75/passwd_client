@@ -1,30 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ColorButton from './ColorButton';
 
-function ColorButton(props){
-  return (
-    <div className={`color-button ${props.selected ? 'selected' : ''}`} style={{backgroundColor: props.color}} onClick={() => {props.onClick(props.color)}}>
-      {(() => {
-        if (props.selected){
-          return <i className="fas fa-check"></i>;
-        }
-      })()}
-    </div>
-  );
-}
-
-function ColorChooser(props){
-  const [color, setColor] = React.useState(props.value);
+export default function ColorChooser({value, onChange = () => {}, colors}){
+  const [color, setColor] = useState(value);
 
   function clickHandler(c){
     setColor(c);
-    if (props.onChange) props.onChange(c);
+    onChange(c);
   }
 
   return (
     <div className="color-chooser">
-      {props.colors.map((c, i) => <ColorButton key={i} selected={color === c} color={`var(--${c})`} onClick={() => clickHandler(c)}/>)}
+      {colors.map((c, i) => <ColorButton key={i} selected={color === c} color={`var(--${c})`} onClick={() => clickHandler(c)}/>)}
     </div>
   );
 }
-
-export default ColorChooser;

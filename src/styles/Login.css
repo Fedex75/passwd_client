@@ -35,13 +35,13 @@
 	color: var(--secondary-text-color);
 }
 
-.login__register_wrapper {
+.login__suggestion_wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: 20px;
 }
 
-.login__register {
+.login__suggestion {
 	margin-right: 10px;
 }

@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Label(props){
+export default function Label({children}){
 	return (
 		<p className="label">
-			{props.children}
+			{children}
 		</p>
 	)
 }
-
-export default Label;

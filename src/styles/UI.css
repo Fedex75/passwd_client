@@ -112,14 +112,14 @@
 	padding: 0 6px;
 }
 
-.input input:-webkit-autofill,
+/*.input input:-webkit-autofill,
 .input input:-webkit-autofill:hover,
 .input input:-webkit-autofill:focus,
 .input input:-webkit-autofill:active {
-	/*box-shadow: 0 0 0 30px var(--foreground) inset !important;
+	box-shadow: 0 0 0 30px var(--foreground) inset !important;
 	-webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
-	-webkit-text-fill-color: white;*/
-}
+	-webkit-text-fill-color: white;
+}*/
 
 .input__buttons {
 	display: flex;

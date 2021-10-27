@@ -1,11 +1,9 @@
 import React from 'react';
-import Auth from '../../Auth';
-import { withRouter } from 'react-router';
-import Label from '../../components/Label';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import './Register.css';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import {Input, Label, Button} from '../../components';
+import Auth from '../../Auth';
+import '../../styles/Login.css';
 
 function Register(props) {
 	const [name, setName] = React.useState('');
@@ -44,8 +42,8 @@ function Register(props) {
 				<Input type="password" value={password} onChange={setPassword} onEnter={register}/>
 				<div style={{height: '20px'}}></div>
 				<Button title="Siguiente" disabled={name === '' || email === '' || password === ''} loading={loading} onClick={register}/>
-				<div className="login__register_wrapper">
-					<p className="login__register">¿Ya tenés una cuenta?</p>
+				<div className="login__suggestion_wrapper">
+					<p className="login__suggestion">¿Ya tenés una cuenta?</p>
 					<Link to="/login">Iniciá sesión</Link>
 				</div>
 			</div>
