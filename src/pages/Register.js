@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import {Input, Label, Button} from '../../components';
-import Auth from '../../Auth';
-import '../../styles/Login.css';
+import {Input, Label, Button} from '../components';
+import Auth from '../Auth';
+import '../styles/Login.css';
 
 function Register(props) {
 	const [name, setName] = React.useState('');
@@ -17,14 +17,12 @@ function Register(props) {
 
 	const register = () => {
 		setLoading(true);
-		Auth.register({ name: name.trim(), email: email.trim().toLowerCase(), password: password }, err => {
+		Auth.register({ name: name.trim(), email: email.trim().toLowerCase(), password: password }).then(() => {
 			setLoading(false);
-			if (err) {
-				console.log(`err: ${err}`);
-			}
-			else {
-				afterRegister('/vault');
-			}
+			afterRegister('/vault');
+		}).catch(e => {
+			setLoading(false);
+			console.log(`Error al registrar usuario: ${e}`);
 		});
 	};
 

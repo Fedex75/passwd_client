@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute';
-import Register from './sections/register/Register';
-import Login from './sections/login/Login';
-import Vault from './sections/vault/Vault';
+import ReactModal from 'react-modal';
+import { ProtectedRoute } from './components';
+import { Register, Login, Vault } from './pages';
 import './styles/App.css';
 import './styles/UI.css';
-import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#root');
 

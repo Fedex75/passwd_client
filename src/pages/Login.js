@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import {Label, Button, Input} from '../../components';
-import Auth from '../../Auth';
-import '../../styles/Login.css';
+import {Label, Button, Input} from '../components';
+import Auth from '../Auth';
+import '../styles/Login.css';
 
 function Login({history, location}) {
 	const [email, setEmail] = useState('');
@@ -17,15 +17,12 @@ function Login({history, location}) {
 
 	const login = () => {
 		setLoading(true);
-		Auth.login({ email: email.trim().toLowerCase(), password: password }, err => {
+		Auth.login({ email: email.trim().toLowerCase(), password: password }).then(() => {
 			setLoading(false);
-			if (err) {
-				setError(err);
-				console.log(`err: ${err}`);
-			}
-			else {
-				afterLogin('/vault');
-			}
+			afterLogin('/vault');
+		}).catch(e => {
+			setLoading(false);
+			setError(e);
 		});
 	};
 

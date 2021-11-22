@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import * as JsSearch from 'js-search';
 import qs from 'qs';
-import {Button, ColorChooser, Input, ModalForm, Section, VaultCard} from '../../components';
-import VaultHandler from '../../VaultHandler';
-import {generatePassword, colors} from '../../utils/Vault';
-import '../../styles/Vault.css';
+import {Button, ColorChooser, Input, ModalForm, Section, VaultCard} from '../components';
+import VaultHandler from '../VaultHandler';
+import {generatePassword, colors} from '../utils/Vault';
+import '../styles/Vault.css';
+import Auth from '../Auth';
 
 function Vault({history, location}){
 	const [vault, setVault] = useState(JSON.parse(JSON.stringify(VaultHandler.vault)));
@@ -49,7 +50,7 @@ function Vault({history, location}){
 	};
 
 	useEffect(() => {
-		let unsubscribeVault = VaultHandler.subscribeToVault(handleVaultChange);
+		const unsubscribeVault = VaultHandler.subscribeToVault(handleVaultChange);
 		return () => {
 			unsubscribeVault();
 		};
@@ -59,8 +60,13 @@ function Vault({history, location}){
 		let unlisten = history.listen((location, action) => {
 			setSearch(qs.parse(location.search.substring(1)).search);
 		});
+		const timer = setTimeout(() => {
+			Auth.logOut();
+			history.replace('/login');
+		}, 15 * 60 * 1000);
 		return () => {	
 			unlisten();
+			clearTimeout(timer);
 		};
 	}, [history]);
 
