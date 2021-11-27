@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import {Input, Label, Button} from '../components';
-import Auth from '../Auth';
+import Auth from '../services/Auth';
 import '../styles/Login.css';
 
 function Register(props) {

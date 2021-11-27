@@ -3,10 +3,10 @@ import { withRouter } from 'react-router';
 import * as JsSearch from 'js-search';
 import qs from 'qs';
 import {Button, ColorChooser, Input, ModalForm, Section, VaultCard} from '../components';
-import VaultHandler from '../VaultHandler';
+import VaultHandler from '../services/VaultHandler';
 import {generatePassword, colors} from '../utils/Vault';
 import '../styles/Vault.css';
-import Auth from '../Auth';
+import Auth from '../services/Auth';
 
 function Vault({history, location}){
 	const [vault, setVault] = useState(JSON.parse(JSON.stringify(VaultHandler.vault)));

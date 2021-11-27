@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Input, ModalForm, ColorChooser} from './';
-import VaultHandler from '../VaultHandler';
+import VaultHandler from '../services/VaultHandler';
 import {generatePassword, colors} from '../utils/Vault';
 
 export default function Card({data, index}){

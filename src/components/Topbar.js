@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router';
 import qs from 'qs';
-import Auth from '../Auth';
+import Auth from '../services/Auth';
 import Button from './Button';
 import Input from './Input';
 

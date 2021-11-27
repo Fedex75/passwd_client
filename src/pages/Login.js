@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import {Label, Button, Input} from '../components';
-import Auth from '../Auth';
+import Auth from '../services/Auth';
 import '../styles/Login.css';
 
 function Login({history, location}) {
