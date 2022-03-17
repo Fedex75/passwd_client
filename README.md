@@ -1,4 +1,6 @@
 # passwd_client
+# Descripción
+Esta página permite almacenar contraseñas de forma segura
 # Uso
 Clonar el repositorio, instalar las dependencias e iniciarlo
 ```
