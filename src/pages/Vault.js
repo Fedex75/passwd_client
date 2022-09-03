@@ -7,6 +7,7 @@ import VaultHandler from '../services/VaultHandler';
 import {generatePassword, colors} from '../utils/Vault';
 import '../styles/Vault.css';
 import Auth from '../services/Auth';
+import copy from 'copy-to-clipboard';
 
 function Vault({history, location}){
 	const [vault, setVault] = useState(JSON.parse(JSON.stringify(VaultHandler.vault)));
@@ -48,6 +49,10 @@ function Vault({history, location}){
 	const randomizePassword = () => {
 		setNewPasswordPassword(generatePassword());
 	};
+
+	const exportPasswords = () => {
+		copy(JSON.stringify(VaultHandler.vault))
+	}
 
 	useEffect(() => {
 		const unsubscribeVault = VaultHandler.subscribeToVault(handleVaultChange);
@@ -102,6 +107,7 @@ function Vault({history, location}){
 			<p className="vault__title">Contraseñas</p>
 			<div className="vault__buttons_wrapper">
 				<Button icon="fas fa-plus" title="Nuevo" onClick={openNewModal} />
+				<Button icon="fas fa-arrow-up-from-bracket" title="Exportar" onClick={exportPasswords} />
 			</div>
 			<div className="vault__cards_wrapper">
 				{vault.data.passwords.map((pw, i) => ( <VaultCard key={i} index={i} data={pw} /> ))}

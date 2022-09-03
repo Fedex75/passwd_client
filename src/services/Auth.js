@@ -5,8 +5,7 @@ import VaultHandler from './VaultHandler';
 class Auth {
 	constructor(){
 		this.authenticated = false;
-		//this.host = 'https://passwd.zaifo.com.ar';
-		this.host = 'http://localhost:8161';
+		this.host = 'https://passwd.zaifo.com.ar';
 	}
 
 	register(userInfo, cb){

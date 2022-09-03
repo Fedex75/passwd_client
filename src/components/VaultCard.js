@@ -54,7 +54,7 @@ export default function Card({data, index}){
 			{
 				editing ?
 				<div className="vault__card-wrapper">
-					<div className="vault__card" style={{backgroundColor: `var(--${editFormColor})`, borderColor: `var(--${editFormColor}-dark)`, position: 'absolute', boxShadow: '0 0 0 10px rgba(255, 255, 255, 100%)'}}>
+					<div className="vault__card edit" style={{backgroundColor: `var(--${editFormColor})`, borderColor: `var(--${editFormColor}-dark)`}}>
 						<div className="vault__card__top_bar">
 							<p className="vault__card__top_bar__title">Editar</p>
 							<Button ghost icon="fas fa-times" onClick={() => {setEditing(false)}} />

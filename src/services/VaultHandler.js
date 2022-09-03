@@ -38,11 +38,11 @@ class VaultHandler {
 	encrypt(text){
 		let iv = crypto.randomBytes(this.ivlength);
 		let cipher = crypto.createCipheriv(this.algorithm, this.key, iv);
-    let ciphered = cipher.update(text, this.inputEncoding, this.outputEncoding);
-    ciphered += cipher.final(this.outputEncoding);
-    let ciphertext = iv.toString(this.outputEncoding) + ':' + ciphered;
+		let ciphered = cipher.update(text, this.inputEncoding, this.outputEncoding);
+		ciphered += cipher.final(this.outputEncoding);
+		let ciphertext = iv.toString(this.outputEncoding) + ':' + ciphered;
 
-    return ciphertext;
+    	return ciphertext;
 	}
 
 	deriveKey(secret, salt) {
@@ -107,7 +107,6 @@ class VaultHandler {
 			resolve();
 		});
 	}
-
 }
 
 export default new VaultHandler();

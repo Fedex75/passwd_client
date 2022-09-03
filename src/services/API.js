@@ -3,8 +3,7 @@ import Auth from './Auth';
 
 class API {
 	constructor(){
-		//this.host = 'https://passwd.zaifo.com.ar';
-		this.host = 'http://localhost:8161';
+		this.host = 'https://passwd.zaifo.com.ar';
 	}
 
 	getVault(){
